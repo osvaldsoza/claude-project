@@ -13,9 +13,24 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(/opt/homebrew/bin/gh repo *)",
+      "Bash(git push *)",
       "Skill(update-config)",
-      "Skill(update-config:*)",
-      "Bash(bash -c '/usr/bin/git add -A && if ! /usr/bin/git diff --cached --quiet; then /usr/bin/git commit -m \"Auto-update: $\\(date +\\\\\"%Y-%m-%d %H:%M:%S\\\\\"\\)\" && /usr/bin/git push origin main; fi')"
+      "Skill(update-config:*)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/osvaldsoza/Development/claude-project && /usr/bin/git add -A && if ! /usr/bin/git diff --cached --quiet; then /usr/bin/git commit -m \"Auto-update: $(/bin/date '+%Y-%m-%d %H:%M:%S')\" && /usr/bin/git push origin main; fi 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "Sincronizando com GitHub..."
+          }
+        ]
+      }
     ]
   }
 }

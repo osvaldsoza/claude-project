@@ -30,6 +30,14 @@ Two-file app: data fetching is isolated in `fetcher.py`; all Streamlit rendering
 
 Sidebar `multiselect` drives which tickers appear in all three sections. `COLORS` dict in `app.py` assigns brand colors per ticker.
 
+## GitHub
+
+Repositório: https://github.com/osvaldsoza/claude-project
+
+Sincronização automática: um hook `PostToolUse` em `.claude/settings.local.json` faz commit e push para `origin/main` após cada edição de arquivo (ferramentas `Write` e `Edit`). Mensagem de commit gerada automaticamente com timestamp.
+
+Para desativar temporariamente, remova ou comente o bloco `hooks` em `.claude/settings.local.json`.
+
 ## Key details
 
 - Data period is hardcoded to `2025-01-01` → `2025-12-31` in `fetcher.py` (`START`/`END`).
