@@ -11,7 +11,11 @@
       "Bash(/opt/homebrew/bin/gh auth *)",
       "Bash(git init *)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(/opt/homebrew/bin/gh repo *)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(bash -c '/usr/bin/git add -A && if ! /usr/bin/git diff --cached --quiet; then /usr/bin/git commit -m \"Auto-update: $\\(date +\\\\\"%Y-%m-%d %H:%M:%S\\\\\"\\)\" && /usr/bin/git push origin main; fi')"
     ]
   }
 }
